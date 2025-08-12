@@ -82,6 +82,7 @@ type InitialState = {
   isDarkMode: boolean;
   jsonText: string;
   path: string;
+  rootVar: string;
   copyButtonDisabled: boolean;
   error: string;
   selectedNode: HTMLElement | null;
@@ -99,6 +100,7 @@ const initialState: InitialState = {
   isDarkMode: false,
   jsonText: JSON.stringify(initialJsonData, null, 2),
   path: "",
+  rootVar: "x",
   copyButtonDisabled: false,
   error: "",
   selectedNode: null,

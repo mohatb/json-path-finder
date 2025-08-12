@@ -8,7 +8,8 @@ import {
   initBeautifyButton,
   initMinifyButton,
 } from "./editor";
-import { initPathDisplay, initCopyButton } from "./path-bar";
+import { initPathDisplay, initCopyButton, initRootVar } from "./path-bar";
+import { initSearch } from "./search";
 import { initVersion2Overlay } from "./overlay";
 import { initBigBoxes } from "./big-boxes";
 import { setUpLocalStorage } from "./storage";
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initEditor(appState);
   initPathDisplay(appState);
   initCopyButton(appState);
+  initRootVar(appState);
+  initSearch(appState);
   initDarkMode(appState);
   initSampleButton(appState);
   initBeautifyButton(appState);

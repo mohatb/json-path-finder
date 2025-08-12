@@ -142,6 +142,12 @@ p {
   border-right: 1px solid #ccc;
 }
 
+#reader-root-var-label {
+  align-items: center;
+  display: flex;
+  border-right: 1px solid #ccc;
+}
+
 #reader-path-bar-input {
   color: #455a64;
   flex: 1;
@@ -149,11 +155,39 @@ p {
   font-size: 0.9em;
 }
 
+#reader-root-var-input {
+  color: #455a64;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.9em;
+  width: 60px;
+}
+
 #reader-path-bar-copy {
   background-color: white;
   border-left: 1px solid #ccc;
   height: 25px;
   width: 70px;
+}
+
+#reader-search-label {
+  align-items: center;
+  display: flex;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+#reader-search-input {
+  color: #455a64;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.9em;
+  width: 160px;
+}
+
+#reader-search-clear {
+  background-color: white;
+  border-left: 1px solid #ccc;
+  height: 25px;
+  width: 60px;
 }
 
 /* the JSON reader itself */
@@ -225,6 +259,10 @@ p {
 
 .json-reader-tree-property-selected {
   background-color: #c1d5e0;
+}
+
+.json-reader-search-highlight {
+  background-color: #fff9c4;
 }
 
 /* footer */
