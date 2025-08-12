@@ -43,3 +43,24 @@ export function initCopyButton(state: AppState) {
     }, 1000);
   });
 }
+
+export function initRootVar(state: AppState) {
+  const rootVarInput = document.querySelector<HTMLInputElement>(
+    "#reader-root-var-input",
+  );
+  if (!rootVarInput) return;
+
+  rootVarInput.value = state.get("rootVar");
+
+  rootVarInput.addEventListener("input", () => {
+    state.set("rootVar", rootVarInput.value);
+  });
+
+  state.subscribe("rootVar", "update root var and path", (newVar, lastVar) => {
+    rootVarInput.value = newVar;
+    const currentPath = state.get("path");
+    if (currentPath.startsWith(lastVar)) {
+      state.set("path", `${newVar}${currentPath.slice(lastVar.length)}`);
+    }
+  });
+}

@@ -72,6 +72,10 @@
         <!-- path bar -->
         <div id="reader-path-bar-holder">
           <div id="reader-path-bar">
+            <div id="reader-root-var-label" class="reader-path-bar-item">
+              Var:
+            </div>
+            <input id="reader-root-var-input" class="reader-path-bar-item" />
             <div id="reader-path-bar-label" class="reader-path-bar-item">
               Path:
             </div>
@@ -81,6 +85,15 @@
               readonly
             />
             <button disabled id="reader-path-bar-copy">Copy</button>
+            <div id="reader-search-label" class="reader-path-bar-item">
+              Search:
+            </div>
+            <input
+              id="reader-search-input"
+              class="reader-path-bar-item"
+              placeholder="Search"
+            />
+            <button disabled id="reader-search-clear">Clear</button>
           </div>
         </div>
 

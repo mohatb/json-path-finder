@@ -29,20 +29,22 @@ export class Reader {
     return value === null || value === undefined || typeof value !== "object";
   }
 
-  private static appendKeyToPath(key: string | number, path: string) {
+  private appendKeyToPath(key: string | number, path: string) {
+    const basePath = path || this.state.get("rootVar");
+
     if (Number.isInteger(key)) {
-      return `${path}[${key.toString()}]`;
+      return `${basePath}[${key.toString()}]`;
     }
 
     if (/[^A-Za-z0-9_$]/.test(key.toString())) {
-      return `${path}["${key}"]`;
+      return `${basePath}["${key}"]`;
     }
 
-    return `${path}.${key}`;
+    return `${basePath}.${key}`;
   }
 
   private renderLeafNode({ key, value, path }: RenderLeafNodeParam) {
-    const newPath = Reader.appendKeyToPath(key, path);
+    const newPath = this.appendKeyToPath(key, path);
 
     const button = document.createElement("button");
     button.classList.add("json-reader-tree-property");
@@ -64,7 +66,7 @@ export class Reader {
   }
 
   private renderParentNode({ key, value, path }: RenderParentParam) {
-    const newPath = Reader.appendKeyToPath(key, path);
+    const newPath = this.appendKeyToPath(key, path);
 
     const details = document.createElement("details");
 
@@ -89,10 +91,7 @@ export class Reader {
     return details;
   }
 
-  private renderTree(
-    obj: JSONObjOrArr,
-    { path = "x", isSubtree = false } = {},
-  ) {
+  private renderTree(obj: JSONObjOrArr, { path = "", isSubtree = false } = {}) {
     const entries = toEntries(obj);
 
     const rootDiv = document.createElement("div");
